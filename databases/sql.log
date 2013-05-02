@@ -71,3 +71,10 @@ CREATE TABLE auth_cas(
     PRIMARY KEY(id)
 ) ENGINE=InnoDB CHARACTER SET utf8;
 success!
+timestamp: 2013-05-02T01:28:48.503533
+CREATE TABLE document(
+    id INT AUTO_INCREMENT NOT NULL,
+    body VARCHAR(255),
+    PRIMARY KEY(id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!

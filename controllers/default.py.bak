@@ -9,18 +9,28 @@
 ## - call exposes all registered services (none by default)
 #########################################################################
 
-
+@auth.requires_login()
+#@auth.requires_membership('client')
+#@auth.requires(if auth.user_groups redirect('techie'))
 def index():
     """
+    srikant: This index page is default for all clients/users, once a user
+    apply for technician, he will be redirected to different page(techie)
+    
     example action using the internationalization operator T and flash
     rendered by views/default/index.html or views/generic.html
 
     if you need a simple wiki simple replace the two lines below with:
     return auth.wiki()
     """
-    response.flash = T("Welcome remote debugger application")
-    return dict(message=T('Welcome to remote debugger application'))
+    # user_id of technician is 10
+    if auth.user_id == 10:
+        redirect(URL('techie'))    
+    return dict(message=T('Hello %(first_name)s' % auth.user))
 
+@auth.requires_membership('techie')
+def techie():
+    return dict(message=T('Hello %(first_name)s' % auth.user))
 
 def user():
     """
