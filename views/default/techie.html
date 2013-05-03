@@ -1,0 +1,18 @@
+{{left_sidebar_enabled,right_sidebar_enabled=False,('message' in globals())}}
+{{extend 'layout.html'}}
+
+{{if 'message' in globals():}}
+<h2>{{=message}}</h2>
+
+<h4>{{=T('Quick guide (technician)')}}</h4>
+<ol>
+  <li>{{=T('This is an application to help Linux users to connect with trained technicians remotely')}}</li>
+  <li>{{=T('A technician(you) will see list of complains and will attend them based on expertise')}}</li>
+  <li>{{=T("If allowed by client, technician(you) will obtain full root access of client's machine, you can optionally chat with client too")}}</li>
+  <li>{{=T('You may extend the time if the issue is not resolved')}}</li>
+</ol>
+{{elif 'content' in globals():}}
+{{=content}}
+{{else:}}
+{{=BEAUTIFY(response._vars)}}
+{{pass}}
