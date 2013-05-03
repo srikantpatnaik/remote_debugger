@@ -1,3 +1,4 @@
 errors/
 databases/
 progress.log
+*.bak

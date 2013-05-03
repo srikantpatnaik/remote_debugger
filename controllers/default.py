@@ -10,23 +10,25 @@
 #########################################################################
 
 @auth.requires_login()
-#@auth.requires_membership('client')
-#@auth.requires(if auth.user_groups redirect('techie'))
 def index():
     """
     srikant: This index page is default for all clients/users, once a user
     apply for technician, he will be redirected to different page(techie)
-    
-    example action using the internationalization operator T and flash
-    rendered by views/default/index.html or views/generic.html
-
-    if you need a simple wiki simple replace the two lines below with:
-    return auth.wiki()
     """
-    # user_id of technician is 10
-    if auth.user_id == 10:
-        redirect(URL('techie'))    
-    return dict(message=T('Hello %(first_name)s' % auth.user))
+    # complaint is declared in db.py 
+    form = SQLFORM(db.complaint)
+    if form.process().accepted:
+        response.flash = 'record inserted'
+        
+    # allows users to redirect to techie page if they belong to 'techie' group
+    if auth.has_membership(role='techie'):
+        redirect(URL('techie'))  
+        
+    #      
+    return dict(message=T('Hello %(first_name)s' % auth.user),
+                form=form,
+               )
+    
 
 @auth.requires_membership('techie')
 def techie():

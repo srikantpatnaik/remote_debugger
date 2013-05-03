@@ -78,3 +78,100 @@ CREATE TABLE document(
     PRIMARY KEY(id)
 ) ENGINE=InnoDB CHARACTER SET utf8;
 success!
+timestamp: 2013-05-03T00:15:41.618035
+CREATE TABLE complaint(
+    id INT AUTO_INCREMENT NOT NULL,
+    title VARCHAR(255),
+    complaints LONGTEXT,
+    PRIMARY KEY(id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2013-05-03T15:36:19.284207
+ALTER TABLE complaint DROP COLUMN title;
+timestamp: 2013-05-03T15:37:22.605845
+ALTER TABLE complaint DROP COLUMN title;
+timestamp: 2013-05-03T15:37:45.806100
+ALTER TABLE complaint DROP COLUMN title;
+timestamp: 2013-05-03T15:41:28.122930
+CREATE TABLE complaint(
+    id INT AUTO_INCREMENT NOT NULL,
+    complaints LONGTEXT,
+    PRIMARY KEY(id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2013-05-03T21:22:03.820409
+ALTER TABLE complaint ADD client_ip VARCHAR(255);
+success!
+timestamp: 2013-05-03T21:22:04.065598
+ALTER TABLE complaint ADD locked CHAR(1);
+success!
+timestamp: 2013-05-03T21:22:04.291658
+ALTER TABLE complaint ADD modified_datetime DATETIME;
+success!
+timestamp: 2013-05-03T21:22:04.515464
+ALTER TABLE complaint ADD unique_key VARCHAR(255);
+success!
+timestamp: 2013-05-03T21:22:04.739932
+ALTER TABLE complaint ADD created_datetime DATETIME;
+success!
+timestamp: 2013-05-03T21:22:04.977335
+ALTER TABLE complaint ADD session_data LONGTEXT;
+success!
+timestamp: 2013-05-03T21:22:05.178756
+ALTER TABLE complaint DROP COLUMN complaints;
+success!
+timestamp: 2013-05-03T22:03:21.598225
+ALTER TABLE complaint ADD start_time DATETIME;
+success!
+timestamp: 2013-05-03T22:03:21.927374
+ALTER TABLE complaint ADD end_time DATETIME;
+success!
+timestamp: 2013-05-03T22:03:22.151337
+ALTER TABLE complaint ADD user_id INT, ADD INDEX user_id__idx (user_id), ADD FOREIGN KEY (user_id) REFERENCES auth_user (id) ON DELETE CASCADE;
+success!
+timestamp: 2013-05-03T22:03:22.386244
+ALTER TABLE complaint ADD tell_about_your_issue LONGTEXT;
+success!
+timestamp: 2013-05-03T22:03:22.622755
+ALTER TABLE complaint DROP COLUMN client_ip;
+success!
+timestamp: 2013-05-03T22:03:22.870243
+ALTER TABLE complaint DROP COLUMN locked;
+success!
+timestamp: 2013-05-03T22:03:23.092704
+ALTER TABLE complaint DROP COLUMN modified_datetime;
+success!
+timestamp: 2013-05-03T22:03:23.350224
+ALTER TABLE complaint DROP COLUMN unique_key;
+success!
+timestamp: 2013-05-03T22:03:23.574215
+ALTER TABLE complaint DROP COLUMN created_datetime;
+success!
+timestamp: 2013-05-03T22:03:23.797662
+ALTER TABLE complaint DROP COLUMN session_data;
+success!
+timestamp: 2013-05-03T23:21:19.417019
+ALTER TABLE complaint ADD user_id__tmp VARCHAR(255);
+success!
+UPDATE complaint SET user_id__tmp=user_id;
+success!
+ALTER TABLE complaint DROP COLUMN user_id;
+timestamp: 2013-05-03T23:22:52.158357
+CREATE TABLE complaint(
+    id INT AUTO_INCREMENT NOT NULL,
+    Tell_about_your_issue LONGTEXT,
+    Start_time DATETIME,
+    End_time DATETIME,
+    user_id VARCHAR(255),
+    PRIMARY KEY(id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2013-05-03T23:52:11.218975
+ALTER TABLE complaint ADD status VARCHAR(255);
+success!
+timestamp: 2013-05-04T00:00:48.935464
+ALTER TABLE complaint DROP COLUMN start_time;
+success!
+timestamp: 2013-05-04T00:00:49.314254
+ALTER TABLE complaint DROP COLUMN end_time;
+success!

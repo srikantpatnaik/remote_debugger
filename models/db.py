@@ -84,5 +84,14 @@ use_janrain(auth, filename='private/janrain.key')
 ## >>> for row in rows: print row.id, row.myfield
 #########################################################################
 
+
+db.define_table('complaint',
+                 Field('Tell_about_your_issue', 'text', requires=IS_NOT_EMPTY()),
+                 Field('Start_time', 'datetime', requires=IS_NOT_EMPTY()),
+                 Field('End_time', 'datetime', requires=IS_NOT_EMPTY()),
+                 Field('user_id', writable=False, readable=False, default=auth.user_id),
+                 Field('status', writable=False, readable=False, default=''),
+                 )
+
 ## after defining tables, uncomment below to enable auditing
-# auth.enable_record_versioning(db)
+auth.enable_record_versioning(db)
