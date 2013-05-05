@@ -9,6 +9,9 @@
 ## - call exposes all registered services (none by default)
 #########################################################################
 
+# rows will contain all the records of complaints by all users
+rows = db(db.complaint).select() 
+
 @auth.requires_login()
 def index():
     """
@@ -23,16 +26,19 @@ def index():
     # allows users to redirect to techie page if they belong to 'techie' group
     if auth.has_membership(role='techie'):
         redirect(URL('techie'))  
-        
-    #      
+                                                                                                                              
+    # Returns 'rows', 'form' and 'message' to views/default/index.html
     return dict(message=T('Hello %(first_name)s' % auth.user),
                 form=form,
+                rows=rows,
                )
-    
+
 
 @auth.requires_membership('techie')
-def techie():
-    return dict(message=T('Hello %(first_name)s' % auth.user))
+def techie(): 
+    return dict(message=T('Hello %(first_name)s' % auth.user),
+                rows=rows,
+               )
 
 def user():
     """

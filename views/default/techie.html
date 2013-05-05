@@ -11,6 +11,15 @@
   <li>{{=T("If allowed by client, technician(you) will obtain full root access of client's machine, you can optionally chat with client too")}}</li>
   <li>{{=T('You may extend the time if the issue is not resolved')}}</li>
 </ol>
+
+<h2>All complaints</h2>
+{{for row in rows:}}
+<!-- {{=BEAUTIFY(row.user_id) }}-->
+
+{{=BEAUTIFY(row.About_your_issue)}}
+
+{{pass}}
+
 {{elif 'content' in globals():}}
 {{=content}}
 {{else:}}

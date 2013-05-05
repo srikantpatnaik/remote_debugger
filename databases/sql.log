@@ -175,3 +175,45 @@ success!
 timestamp: 2013-05-04T00:00:49.314254
 ALTER TABLE complaint DROP COLUMN end_time;
 success!
+timestamp: 2013-05-04T01:03:25.373540
+ALTER TABLE complaint ADD start_time DATETIME;
+success!
+timestamp: 2013-05-04T01:03:25.699557
+ALTER TABLE complaint ADD end_time DATETIME;
+success!
+timestamp: 2013-05-04T07:50:02.973403
+ALTER TABLE complaint ADD about_your_issue LONGTEXT;
+success!
+timestamp: 2013-05-04T07:50:03.291494
+ALTER TABLE complaint DROP COLUMN tell_about_your_issue;
+success!
+timestamp: 2013-05-04T08:35:16.103484
+CREATE TABLE complaint(
+    id INT AUTO_INCREMENT NOT NULL,
+    About_your_issue LONGTEXT,
+    Start_time DATETIME,
+    End_time DATETIME,
+    user_id VARCHAR(255),
+    status VARCHAR(255),
+    PRIMARY KEY(id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+timestamp: 2013-05-04T08:38:33.050324
+CREATE TABLE complaint(
+    id INT AUTO_INCREMENT NOT NULL,
+    About_your_issue LONGTEXT,
+    Start_time DATETIME,
+    End_time DATETIME,
+    user_id VARCHAR(255),
+    status VARCHAR(255),
+    PRIMARY KEY(id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2013-05-04T08:40:05.154572
+ALTER TABLE complaint ADD user_status VARCHAR(255);
+success!
+timestamp: 2013-05-04T08:40:05.451487
+ALTER TABLE complaint ADD complaint_status VARCHAR(255);
+success!
+timestamp: 2013-05-04T08:40:05.689010
+ALTER TABLE complaint DROP COLUMN status;
+success!

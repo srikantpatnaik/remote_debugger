@@ -14,6 +14,13 @@
   <li>{{=T('You may extend the time if the issue is not resolved')}}</li>
 </ol>
 {{=form}}
+
+<h2>Your complaints</h2>
+{{for row in rows.find(lambda row: row.user_id==str(auth.user_id)):}}
+{{=BEAUTIFY(row.About_your_issue)}}
+{{pass}}
+
+
 {{elif 'content' in globals():}}
 {{=content}}
 {{else:}}
