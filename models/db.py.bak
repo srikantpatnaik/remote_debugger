@@ -90,7 +90,8 @@ db.define_table('complaint',
                  Field('Start_time', 'datetime', requires=IS_NOT_EMPTY()),
                  Field('End_time', 'datetime', requires=IS_NOT_EMPTY()),
                  Field('user_id', writable=False, readable=False, default=auth.user_id),
-                 Field('status', writable=False, readable=False, default=''),
+                 Field('complaint_status', writable=False, readable=False, default=''),
+                 Field('user_status', writable=False, readable=False, default=''),
                  )
 
 ## after defining tables, uncomment below to enable auditing

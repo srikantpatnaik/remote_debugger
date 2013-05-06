@@ -9,9 +9,10 @@
 ## - call exposes all registered services (none by default)
 #########################################################################
 
-# This command will be invoked 
-sbCommand = 'shellinaboxd --localhost-only -t -s /:srikant:srikant:/:'
+from subprocess import Popen, PIPE
 
+# This command will be invoked 
+sbCommand = 'shellinaboxd -t -s /:srikant:srikant:/:'
 
 # rows will contain all the records of complaints by all users
 rows = db(db.complaint).select() 
@@ -43,6 +44,11 @@ def techie():
     return dict(message=T('Hello %(first_name)s' % auth.user),
                 rows=rows,
                )
+
+
+#def access():
+    
+
 
 def user():
     """

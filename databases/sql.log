@@ -217,3 +217,14 @@ success!
 timestamp: 2013-05-04T08:40:05.689010
 ALTER TABLE complaint DROP COLUMN status;
 success!
+timestamp: 2013-05-06T13:18:46.003536
+CREATE TABLE complaint(
+    id INT AUTO_INCREMENT NOT NULL,
+    About_your_issue LONGTEXT,
+    Start_time DATETIME,
+    End_time DATETIME,
+    user_id VARCHAR(255),
+    complaint_status VARCHAR(255),
+    user_status VARCHAR(255),
+    PRIMARY KEY(id)
+) ENGINE=InnoDB CHARACTER SET utf8;

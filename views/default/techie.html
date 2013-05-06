@@ -13,14 +13,14 @@
 </ol>
 
 <h2>All complaints</h2>
-<!-- Fix the display format -->
 {{for row in rows:}}
-User identification number: {{=row.user_id}}<br>
-Complaint :{{=row.About_your_issue}}<br>
-Start time: {{=row.Start_time}}<br>
-End time: {{=row.End_time}}
-<br><br><br>
+{{=B('User identification number :')}} {{=A(row.user_id, _href='http://www.web2py.com')}}<br>
+{{=B('Complaint :')}} {{=row.About_your_issue}}<br>
+{{=B('Start time :')}} {{=row.Start_time}}<br>
+{{=B('End time :')}} {{=row.End_time}}<br>
+{{=HR()}}
 {{pass}}
+
 
 {{elif 'content' in globals():}}
 {{=content}}
