@@ -17,7 +17,10 @@
 
 <h2>Your complaints</h2>
 {{for row in rows.find(lambda row: row.user_id==str(auth.user_id)):}}
-{{=BEAUTIFY(row.About_your_issue)}}
+Complaint :{{=row.About_your_issue}}<br>
+Start time: {{=row.Start_time}}<br>
+End time: {{=row.End_time}}
+<br><br><br>
 {{pass}}
 
 

@@ -9,6 +9,10 @@
 ## - call exposes all registered services (none by default)
 #########################################################################
 
+# This command will be invoked 
+sbCommand = 'shellinaboxd --localhost-only -t -s /:srikant:srikant:/:'
+
+
 # rows will contain all the records of complaints by all users
 rows = db(db.complaint).select() 
 

@@ -13,11 +13,13 @@
 </ol>
 
 <h2>All complaints</h2>
+<!-- Fix the display format -->
 {{for row in rows:}}
-<!-- {{=BEAUTIFY(row.user_id) }}-->
-
-{{=BEAUTIFY(row.About_your_issue)}}
-
+User identification number: {{=row.user_id}}<br>
+Complaint :{{=row.About_your_issue}}<br>
+Start time: {{=row.Start_time}}<br>
+End time: {{=row.End_time}}
+<br><br><br>
 {{pass}}
 
 {{elif 'content' in globals():}}
