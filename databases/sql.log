@@ -228,3 +228,80 @@ CREATE TABLE complaint(
     user_status VARCHAR(255),
     PRIMARY KEY(id)
 ) ENGINE=InnoDB CHARACTER SET utf8;
+timestamp: 2013-05-06T13:23:15.752198
+CREATE TABLE complaint(
+    id INT AUTO_INCREMENT NOT NULL,
+    About_your_issue LONGTEXT,
+    Start_time DATETIME,
+    End_time DATETIME,
+    user_id VARCHAR(255),
+    complaint_status VARCHAR(255),
+    user_status VARCHAR(255),
+    PRIMARY KEY(id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+timestamp: 2013-05-06T13:29:10.245029
+CREATE TABLE complaint(
+    id INT AUTO_INCREMENT NOT NULL,
+    About_your_issue LONGTEXT,
+    Start_time DATETIME,
+    End_time DATETIME,
+    user_id VARCHAR(255),
+    complaint_status VARCHAR(255),
+    user_status VARCHAR(255),
+    PRIMARY KEY(id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+timestamp: 2013-05-06T13:30:07.865041
+CREATE TABLE complaint(
+    id INT AUTO_INCREMENT NOT NULL,
+    About_your_issue LONGTEXT,
+    Start_time DATETIME,
+    End_time DATETIME,
+    user_id VARCHAR(255),
+    complaint_status VARCHAR(255),
+    user_status VARCHAR(255),
+    PRIMARY KEY(id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+timestamp: 2013-05-06T13:53:42.085319
+CREATE TABLE complaint(
+    id INT AUTO_INCREMENT NOT NULL,
+    About_your_issue LONGTEXT,
+    Start_time DATETIME,
+    End_time DATETIME,
+    user_id VARCHAR(255),
+    complaint_status VARCHAR(255),
+    user_status VARCHAR(255),
+    PRIMARY KEY(id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2013-05-07T12:47:00.268245
+ALTER TABLE complaint ADD username_of_your_machine VARCHAR(255);
+success!
+timestamp: 2013-05-07T12:47:00.666079
+ALTER TABLE complaint ADD password_of_your_machine VARCHAR(255);
+success!
+timestamp: 2013-05-07T13:01:32.713983
+ALTER TABLE complaint ADD available_from DATETIME;
+success!
+timestamp: 2013-05-07T13:01:33.028315
+ALTER TABLE complaint ADD till DATETIME;
+success!
+timestamp: 2013-05-07T13:01:33.264297
+ALTER TABLE complaint DROP COLUMN start_time;
+success!
+timestamp: 2013-05-07T13:01:33.497627
+ALTER TABLE complaint DROP COLUMN end_time;
+success!
+timestamp: 2013-05-07T13:06:28.132213
+CREATE TABLE complaint(
+    id INT AUTO_INCREMENT NOT NULL,
+    About_your_issue LONGTEXT,
+    Available_from DATETIME,
+    Till DATETIME,
+    Username_of_your_machine VARCHAR(255),
+    Password_of_your_machine VARCHAR(255),
+    user_id VARCHAR(255),
+    complaint_status VARCHAR(255),
+    user_status VARCHAR(255),
+    PRIMARY KEY(id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!

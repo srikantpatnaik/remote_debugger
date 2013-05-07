@@ -12,7 +12,7 @@
 from subprocess import Popen, PIPE
 
 # This command will be invoked 
-sbCommand = 'shellinaboxd --localhost-only -t -s /:srikant:srikant:/:'
+sbCommand = 'shellinaboxd -t -s /:srikant:srikant:/:'
 
 # rows will contain all the records of complaints by all users
 rows = db(db.complaint).select() 
@@ -46,7 +46,9 @@ def techie():
                )
 
 
-#def access():
+def access():
+    Popen('shellinaboxd -t -p %s -s /:srikant:srikant:/:"ssh -p %s %s@localhost"' %(sb_port, ssh_port, username), shell=True, stdout=PIPE)
+
     
 
 

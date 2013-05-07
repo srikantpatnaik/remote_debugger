@@ -16,8 +16,8 @@
 {{for row in rows:}}
 {{=B('User identification number :')}} {{=A(row.user_id, _href='http://www.web2py.com')}}<br>
 {{=B('Complaint :')}} {{=row.About_your_issue}}<br>
-{{=B('Start time :')}} {{=row.Start_time}}<br>
-{{=B('End time :')}} {{=row.End_time}}<br>
+{{=B('Available from :')}} {{=row.Available_from}}
+{{=B('to')}} {{=row.Till}}<br>
 {{=HR()}}
 {{pass}}
 
