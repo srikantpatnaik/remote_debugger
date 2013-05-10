@@ -57,7 +57,7 @@ auth.settings.registration_requires_verification = False
 auth.settings.registration_requires_approval = False
 auth.settings.reset_password_requires_verification = True
 
-## srikant: adding default to client group
+## srikant: adding default user to client group
 auth.settings.create_user_groups = None
 auth.settings.everybody_group_id = 10
 
@@ -86,15 +86,11 @@ use_janrain(auth, filename='private/janrain.key')
 
 
 db.define_table('complaint',
-                 Field('About_your_issue', 'text',
-                       default='Detailed description of your problem', requires=IS_NOT_EMPTY()),
-                 Field('Available_from', 'datetime',
-                       default='Click to invoke calender', requires=IS_NOT_EMPTY()),
-                 Field('Till', 'datetime',
-                       default='Click to invoke calender', requires=IS_NOT_EMPTY()),
+                 Field('About_your_issue', 'text', requires=IS_NOT_EMPTY()),
+                 Field('Available_from', 'datetime', requires=IS_NOT_EMPTY()),
+                 Field('Till', 'datetime', requires=IS_NOT_EMPTY()),
                  Field('Username_of_your_machine','string', requires=IS_NOT_EMPTY()),
-                 Field('Password_of_your_machine', 'string',
-                       default='We will not share with anyone', requires=IS_NOT_EMPTY()),
+                 Field('Password_of_your_machine', 'string', requires=IS_NOT_EMPTY()),
                  Field('user_id', writable=False, readable=False, default=auth.user_id),
                  Field('complaint_status', writable=False, readable=False, default=''),
                  Field('user_status', writable=False, readable=False, default=''),

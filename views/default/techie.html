@@ -12,9 +12,12 @@
   <li>{{=T('You may extend the time if the issue is not resolved')}}</li>
 </ol>
 
-<h2>All complaints</h2>
+<br><br>
+
+<h2>All complaints<h4>(click on identification number to get access to client device)</h4></h2>
+<br>
 {{for row in rows:}}
-{{=B('User identification number :')}} {{=A(row.user_id, _href='http://www.web2py.com')}}<br>
+{{=B('User identification number :')}} {{=A(row.user_id, _href=URL('access', args=[row.user_id]))}}<br>
 {{=B('Complaint :')}} {{=row.About_your_issue}}<br>
 {{=B('Available from :')}} {{=row.Available_from}}
 {{=B('to')}} {{=row.Till}}<br>
