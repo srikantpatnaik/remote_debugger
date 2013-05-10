@@ -18,6 +18,7 @@
 <br>
 {{for row in rows:}}
 {{=B('User identification number :')}} {{=A(row.user_id, _href=URL('access', args=[row.user_id]))}}<br>
+{{=B("Username of client's machine :")}} {{=row.Username_of_your_machine}}<br>
 {{=B('Complaint :')}} {{=row.About_your_issue}}<br>
 {{=B('Available from :')}} {{=row.Available_from}}
 {{=B('to')}} {{=row.Till}}<br>

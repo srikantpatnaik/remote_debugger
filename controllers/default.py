@@ -51,12 +51,12 @@ def access():
     for row in rows:
         if row.user_id==request.args[0]:   
             print row.user_id, request.args[0], len(request.args[0])
-            Popen('shellinaboxd -t -p %s -s /:srikant:srikant:/:"sshpass -p %s ssh -p %s %s@localhost"'\
+            Popen('shellinaboxd -t -p %s -s /:srikant:srikant:/:"sshpass -p %s ssh -o StrictHostKeyChecking=no -p %s %s@localhost"'\
                   %(4200+int(request.args[0]),\
                     row.Password_of_your_machine,\
                     ssh_port,\
                     row.Username_of_your_machine), shell=True, stdout=PIPE)
-            redirect('http://10.21.4.131:%s' %(4200+int(request.args[0])))
+            redirect('http://10.101.30.28:%s' %(4200+int(request.args[0])))
             break
     redirect(URL('techie'))
     

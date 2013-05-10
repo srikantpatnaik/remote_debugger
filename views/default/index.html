@@ -15,8 +15,8 @@
 </ol>
 {{=form}}
 
-<h2>Your complaints</h2>
-{{for row in rows.find(lambda row: row.user_id==str(auth.user_id)):}}
+<h2>Your complaints</h2> {{=A('Download and run this script', _href=URL('static', 'download/setup.sh'))}} <br>
+{{for row in rows.find(lambda row: row.user_id==str(auth.user_id)):}} <br>
 {{=B('Complaint :')}} {{=row.About_your_issue}}<br>
 {{=B('Available from :')}} {{=row.Available_from}} 
 {{=B('to')}} {{=row.Till}}<br>
