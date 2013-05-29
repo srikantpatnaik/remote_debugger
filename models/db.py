@@ -84,7 +84,7 @@ use_janrain(auth, filename='private/janrain.key')
 ## >>> for row in rows: print row.id, row.myfield
 #########################################################################
 
-
+"""
 db.define_table('complaint',
                  Field('About_your_issue', 'text', requires=IS_NOT_EMPTY()),
                  Field('Available_from', 'datetime', requires=IS_NOT_EMPTY()),
@@ -95,6 +95,19 @@ db.define_table('complaint',
                  Field('complaint_status', writable=False, readable=False, default=''),
                  Field('user_status', writable=False, readable=False, default=''),
                  )
+"""
+db.define_table('complaint',
+                 Field('About_your_issue', 'text', requires=IS_NOT_EMPTY()),
+                 Field('Available_from', 'datetime', requires=IS_NOT_EMPTY()),
+                 Field('Till', 'datetime', requires=IS_NOT_EMPTY()),
+                 Field('Username_of_your_machine','string', requires=IS_NOT_EMPTY()),
+               #  Field('Password_of_your_machine', 'string', requires=IS_NOT_EMPTY()),
+                 Field('Paste_your_ssh_key', 'text', requires=IS_NOT_EMPTY()),
+                 Field('user_id', writable=False, readable=False, default=auth.user_id),
+                 Field('complaint_status', writable=False, readable=False, default=''),
+                 Field('user_status', writable=False, readable=False, default=''),
+                 )
+
 
 ## after defining tables, uncomment below to enable auditing
 #auth.enable_record_versioning(db)

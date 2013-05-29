@@ -13,9 +13,25 @@
   <li>{{=T('If allowed, technician will obtain full root access of your device, you can optionally chat with technician')}}</li>
   <li>{{=T('You may extend the time if the issue is not resolved')}}</li>
 </ol>
-{{=form}}
+<br>
 
-<h2>Your complaints</h2> {{=A('Download and run this script', _href=URL('static', 'download/setup.sh'))}} <br>
+
+<h3>{{=T('Fill this form to register your complaint')}}</h3>
+<h4>{{=T('Quick help')}}</h4>
+{{=B('To get ssh-key, execute this command on your terminal and copy the output:')}}<br>
+{{=CODE('ssh-keygen -q -N "" -t rsa -f ~/.ssh/rt_rsa && cat ~/.ssh/rt_rsa.pub', language='bash', link=None, counter=None, styles={'CODE':'margin: 0;padding: 5px;border: none;'})}}<br>
+
+
+{{=form}}<br>
+{{=A('click to see your new complaint',_href=URL('index'))}}<br>
+<h4>{{=T('Now, to enable technician to login your machine, run this command on your terminal:')}}</h4> 
+{{=CODE('ssh -g -i ~/.ssh/rt_rsa -R %s:localhost:22 srikant@10.101.30.40' %(2000+int(auth.user_id)), language='bash', link=None, counter=None, styles={'CODE':'margin: 0;padding: 5px;border: none;'})}}<br>
+
+
+
+<h2>Your all complaints</h2> 
+
+<!-- {{=A('Download and run this script', _href=URL('static', 'download/setup.sh'))}} <br> -->
 {{for row in rows.find(lambda row: row.user_id==str(auth.user_id)):}} <br>
 {{=B('Complaint :')}} {{=row.About_your_issue}}<br>
 {{=B('Available from :')}} {{=row.Available_from}} 

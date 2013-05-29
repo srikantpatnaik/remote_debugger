@@ -305,3 +305,23 @@ CREATE TABLE complaint(
     PRIMARY KEY(id)
 ) ENGINE=InnoDB CHARACTER SET utf8;
 success!
+timestamp: 2013-05-27T11:17:34.921830
+CREATE TABLE complaint(
+    id INT AUTO_INCREMENT NOT NULL,
+    About_your_issue LONGTEXT,
+    Available_from DATETIME,
+    Till DATETIME,
+    Username_of_your_machine VARCHAR(255),
+    Paste_your_ssh_key LONGTEXT,
+    user_id VARCHAR(255),
+    complaint_status VARCHAR(255),
+    user_status VARCHAR(255),
+    PRIMARY KEY(id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2013-05-29T07:01:39.255745
+ALTER TABLE complaint ADD password_of_your_machine VARCHAR(255);
+success!
+timestamp: 2013-05-29T07:27:46.528762
+ALTER TABLE complaint DROP COLUMN password_of_your_machine;
+success!
